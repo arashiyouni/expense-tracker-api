@@ -46,6 +46,9 @@ $ npm run test:cov
 - Remove existing expenses
 - Update existing expenses
 
-
+### Challengues
+-  Add middleware and guard
+- JWT Tokens
+- Added Prisma
 ### Reference project
 - [Roadmap Backend - Expense Tracker API](https://roadmap.sh/projects/expense-tracker-api)
