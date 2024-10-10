@@ -2,20 +2,8 @@ version: '3'
 
 services:
   expensive-tracker:
-    image: mongo:5
-    container_name: expensiveapi
-    restart: always
-    ports:
-      - 27019:27017
-    environment:
-      MONGODB_DATABASE: expensive
-    volumes:
-      - ./db/expensive:/data/db
-  
-
-  expensive-categories:
     image: mcr.microsoft.com/mssql/server:2022-latest
-    container_name: categorieapi
+    container_name: expensive_tracker
     restart: always
     user: root
     expose:
