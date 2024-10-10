@@ -1,24 +1,4 @@
-import mongoose from "mongoose";
 import { DataSource } from "typeorm";
-
-//Aqui me estoy asegurando que mi aplicación pueda conectarse y usar la BD
-export const MongoProvider = [
-    {
-        //aca le digo que proveere la conexion de mongo utilizando 
-        //MONGO_EXPRENSIVE_TRACKER
-        provide: 'MONGO_EXPRENSIVE_TRACKER',
-        useFactory: async (): Promise<typeof mongoose> => {
-            try {
-                const connection = await mongoose.connect(process.env.DB);
-                console.log('🍏 | MongoDB <expensive tracker api> connection established 🎉');
-                return connection;
-            } catch (error) {
-                console.error('🚩🍏 | Failed connected mongoDB 😭:', error.message);
-                throw error;
-            }
-        }
-    }
-]
 
 export const MsSQLProvider = [
     {
@@ -32,7 +12,7 @@ export const MsSQLProvider = [
                 port: 1434,
                 username: "sa",
                 password: "mysecret1234!",
-                database: process.env.BD_SQL,
+                database: "ExpensiveAPI",
                 options: {
                     trustServerCertificate: true,
                 },
@@ -40,10 +20,10 @@ export const MsSQLProvider = [
             })
             try {
                 await dataSource.initialize();
-                console.log("🤝 | Data Source (SQL): <categorieapi> has been initialized!");
+                console.log("🤝 | Data Source (SQL): <expensive api> has been initialized!");
                 return dataSource;
             } catch (err) {
-                console.error("🚑 | Error during Data Source <categorieapi> initialization:", err);
+                console.error("🚑 | Error during Data Source <expensive api> initialization:", err);
             }
         }
     }
