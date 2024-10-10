@@ -5,6 +5,10 @@ import { UserModule } from './modules/user/user.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { DatabaseModule } from './database/database.module';
 import { AdminModule } from './modules/admin/admin.module';
+import { ExpensiveModule } from './modules/expensive/expensive.module';
+import { CategorieModule } from './modules/categorie/categorie.module';
+import { RolesService } from './modules/roles/roles.service';
+import { RolesModule } from './modules/roles/roles.module';
 
 @Module({
   imports: [
@@ -15,9 +19,12 @@ import { AdminModule } from './modules/admin/admin.module';
     //MongooseModule.forRoot(process.env.DB),
     UserModule,
     DatabaseModule,
-    AdminModule
+    AdminModule,
+    ExpensiveModule,
+    CategorieModule,
+    RolesModule
   ],
   controllers: [],
-  providers: [AppService],
+  providers: [AppService, RolesService],
 })
 export class AppModule {}
