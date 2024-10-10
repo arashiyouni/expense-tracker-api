@@ -4,6 +4,7 @@ import { ConfigModule } from '@nestjs/config';
 import { UserModule } from './modules/user/user.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { DatabaseModule } from './database/database.module';
+import { AdminModule } from './modules/admin/admin.module';
 
 @Module({
   imports: [
@@ -11,9 +12,10 @@ import { DatabaseModule } from './database/database.module';
       envFilePath: '.env',
       isGlobal: true,
     }),
-    MongooseModule.forRoot(process.env.DB),
+    //MongooseModule.forRoot(process.env.DB),
     UserModule,
-    DatabaseModule
+    DatabaseModule,
+    AdminModule
   ],
   controllers: [],
   providers: [AppService],
